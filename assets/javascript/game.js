@@ -7,15 +7,28 @@ var goalValue = Math.floor((Math.random() * 101) + 19);
 
 //computer GENERATES random numbers for each gem, between 1-12
 
-var gemArray = []
+// var i = 1;
+var gemArray = [];
 
-function generateGemValues () {
-    for (i = 0; i < 5; i++)
-    $(gemArray.push) = Math.floor(Math.random() * 12) + 1;
-    console.log(gemArray); ///stopping work, i think this is good code but does not console log, and needs to be activated (function call)
-    };
+function generateGemValues() {
+    for (var i = 1; i < 5; i++); {
+    // var randomNumber = Math.floor(Math.random() * 12) + 1;
+        gemArray.push(Math.floor(Math.random() * 12) + 1);
+    // gemArray.push(randomNumber);
+    } // THIS ONLY POPULATES FIRST NUMBER IN ARRAY
+};
 
-        
+generateGemValues();
+console.log(gemArray);
+
+//assign value to the images, this seems clunky --THIS ALSO DOESN'T LIKELY WORK
+$("#emerald").attr(gemArray[0]);
+$("#tourmaline").attr(gemArray[1]);
+$("#ruby").attr(gemArray[2]);
+$("#citrine").attr(gemArray[3]);
+
+})
+
 //reset from calculator game to reset during the operations by pressing a button "clear"
     //$(".clear").on("click", function() {
         //resetCalculator();
@@ -23,6 +36,4 @@ function generateGemValues () {
 
 //reset from calculator game to start the game fresh
     //resetCalculator();
-
-
-})
+//  generateGemValues ((Math.floor(Math.random() * 12) + 1), (Math.floor(Math.random() * 12) + 1), (Math.floor(Math.random() * 12) + 1), (Math.floor(Math.random() * 12) + 1));
