@@ -8,34 +8,46 @@
     <!-- this causes a weird error but the functionality appears to work -->
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/pulse/bootstrap.min.css" >
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <!-- <script src="assets/javascript/game.js"></script> -->
     
 
 </head>
 <body>
-    <h1>Crystals Collector!</h1>
+    <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">Crystals Collector!</span>
+    </nav>
+
     <!-- instructions -->
-    <p class=instructions>You will be given a random number at the start of the game. <br> 
-        There are four crystals below. By clicking on a crystal, you will add a specific amount of points to your total score. <br>
-        You win the game by matching your total score to a random numnber; you lose the game if your total score goes above the random number. <br>
-        The value of each crystal is hidden from you until you click on it.<br>
-        Each time the game starts, the values of the crystals change.
+    <p class=instructions><i>Instructions:</i><br>To win the game, you must match the 'value so far' to the game's goal value. Click on the gems to add to your value.
+        <br>
+        The gem values are randomly generated with each new round, as is your goal value.
+        <br>
+        <br>
     </p>
+    <div class="card text-center">
+        <div class="card-header">
+            <!-- value of this round (adding up) and goal value -->
+            <div id=goalValue>Your goal value is: </div>
+            <div class=points>Value so far: </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+            <!-- pictures of crystals-->
+            <img class="gems" id="emerald" src="assets/images/emerald.jpg" height="200px" alt=gems />
+            <img class="gems" id="tourmaline" src="assets/images/tourmaline.jpg" height="200px" alt=gems />  
+            <img class="gems" id="ruby" src="assets/images/ruby.jpg" height="250px" alt=gems />
+            <img class="gems" id="citrine" src="assets/images/citrine.jpg" height="200px" alt=gems />
+        </div>
+        <div class="card-footer text-muted">
+              <!--score keeping -->
+            <div class=wins>Wins: </div>
+            <div class=losses>Losses: </div>
+        </div>
+      </div>
 
-    <!-- value of this round (adding up) and goal value -->
-    <div id=goalValue>Your goal value is: </div>
-    <div class=points>Value so far: </div>
-
-    <!-- pictures of crystals-->
-    <img class="gems" id="emerald" src="assets/images/emerald.jpg" height="200px" alt=gems />
-    <img class="gems" id="tourmaline" src="assets/images/tourmaline.jpg" height="200px" alt=gems />  
-    <img class="gems" id="ruby" src="assets/images/ruby.jpg" height="250px" alt=gems />
-    <img class="gems" id="citrine" src="assets/images/citrine.jpg" height="200px" alt=gems />
-    
-    <!--score keeping -->
-    <div class=wins>Wins: </div>
-    <div class=losses>Losses: </div>
+      <div id="chaching" src="assets/chaching.mp3"></div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

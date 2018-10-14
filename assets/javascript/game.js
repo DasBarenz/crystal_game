@@ -1,30 +1,26 @@
 $(document).ready(function() {
-//computer GENERATES random number for user goal number, between 19-120
-//the goal number is DISPLAYED on the screen
-
-var goalValue = (Math.floor((Math.random() * 101) + 19));
-    console.log(goalValue);
-    $("#goalValue").text("Your goal value is: " + goalValue)
-
-//user progress counter starts at zero
+var goalValue = 0;
 var counter = 0;
 var wins = 0;
 var losses = 0;
 
-//computer GENERATES random numbers for each gem, between 1-12
+function generateGoalValue() {
+    goalValue = (Math.floor((Math.random() * 101) + 19));
+    $("#goalValue").text("Your goal value is: " + goalValue)
+};
+generateGoalValue();
+console.log(goalValue);
 
-var gemArray = [6, 7, 8, 9];
+var gemArray = [];
 
-// function generateGemValues() {
-//     for (var i = 1; i < 5; i++); {
-//     // var randomNumber = Math.floor(Math.random() * 12) + 1;
-//         gemArray.push(Math.floor(Math.random() * 12) + 1);
-//     // gemArray.push(randomNumber);
-//     } // THIS ONLY POPULATES FIRST NUMBER IN ARRAY or...now, no numbers
-// };
+function generateGemValues() {
+    for (var i = 1; i < 5; i++) {
+    gemArray.push(Math.floor(Math.random() * 12) + 1);
+    }
+};
+generateGemValues();
+console.log(gemArray);
 
-// generateGemValues();
-// console.log(gemArray);
 
 $("#emerald").attr("data-crystalvalue", gemArray[0]);
 $("#tourmaline").attr("data-crystalvalue", gemArray[1]);
@@ -41,25 +37,21 @@ $(".gems").on("click", function() {
     if (counter === goalValue) {
       wins++;
       $(".wins").text("Wins: " + wins);
-    //   generateGemValues();
-      counter = 0;
+        document.getElementById("#chaching").play();
+        play();
+        gemArray = [];
+        generateGemValues();
+        generateGoalValue();
+        counter = 0;
     } else if (counter > goalValue) {
       losses++;
       $(".losses").text("Losses: " + losses);
-    //   generateGemValues();
+      gemArray = [];
+      generateGemValues();
+      generateGoalValue();
       counter = 0;
     };
 
   });
 
-
 })
-
-//reset from calculator game to reset during the operations by pressing a button "clear"
-    //$(".clear").on("click", function() {
-        //resetCalculator();
-    //     })
-
-//reset from calculator game to start the game fresh
-    //resetCalculator();
-//  generateGemValues ((Math.floor(Math.random() * 12) + 1), (Math.floor(Math.random() * 12) + 1), (Math.floor(Math.random() * 12) + 1), (Math.floor(Math.random() * 12) + 1));
